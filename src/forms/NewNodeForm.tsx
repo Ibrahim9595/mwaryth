@@ -14,6 +14,7 @@ interface FormData {
   wealth?: number;
   gender?: "male" | "female" | "";
   isAlive?: boolean;
+  married?: boolean;
 }
 
 const validate = (data: FormData) => {
@@ -43,6 +44,7 @@ export const NewNodeForm = ({
         wealth: data?.wealth || 0,
         gender: data?.gender || "",
         isAlive: data?.isAlive || false,
+        married: data?.married || false,
       }}
     >
       <Input
@@ -77,6 +79,9 @@ export const NewNodeForm = ({
       ></FormSelectionGroup>
       <div style={{ marginBlock: "15px" }}>
         <CheckBox name="isAlive" toggle label={i18n.t("IS_ALIVE")} />
+      </div>
+      <div style={{ marginBlock: "15px" }}>
+        <CheckBox name="married" toggle label={i18n.t("MARRIED")} />
       </div>
       <Field
         component={({ form }: FieldProps) => (

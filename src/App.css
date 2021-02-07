@@ -9,9 +9,12 @@
   padding-block: 20px;
   width: 20%;
   padding-inline: 20px;
-  border-inline-end: 1px solid black;
+  border-inline-start: 1px solid rgba(89, 89, 207, 0.719);
 }
 
 .App .tree {
   width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

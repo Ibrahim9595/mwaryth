@@ -9,6 +9,7 @@ const data = {
   IS_ALIVE: "Is Alive?",
   SAVE: "Add",
   EDIT_DATA: "Edit Data",
+  MARRIED: "Married",
 };
 
 export default data;
