@@ -9,13 +9,7 @@ function App() {
 	const { i18n } = useTranslation();
 	return (
 		<div className="App">
-			<div className="form-container">
-				<h3>{i18n.t('EDIT_DATA')}</h3>
-				<NewNodeForm />
-				<div>
-					<FamilyTree />
-				</div>
-			</div>
+			<FamilyTree />
 		</div>
 	);
 }

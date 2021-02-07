@@ -1,16 +1,24 @@
 import React from 'react';
 import { Tree } from 'react-tech-tree';
+import './index.css';
 import 'react-tech-tree/dist/index.css';
+import treeData from './data/tree.json';
 
-const nodes = [
-	[
-		{ id: 'A0', name: 'A' },
-		{ id: 'B0', name: 'B' },
-	],
-];
-const links = [{ from: 'A0', to: 'B0' }];
+const MyNodeElement = ({ name, id }: any) => (
+    <button id={id} className="Node" onClick={() => {}}>
+		{name}
+	</button>
+);
 
 const FamilyTree = () => {
-	return <Tree nodes={nodes} links={links} />;
+    const { nodes, links } = treeData;
+	return (
+		<Tree
+			id="text-tree"
+			nodes={nodes}
+			links={links}
+			NodeElement={MyNodeElement}
+		/>
+	);
 };
 export default FamilyTree;
