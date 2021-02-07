@@ -1,9 +1,7 @@
 .App {
   height: 100%;
-}
-
-.App .main-content {
-  width: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .App .form-container {
@@ -12,4 +10,8 @@
   width: 20%;
   padding-inline: 20px;
   border-inline-end: 1px solid black;
+}
+
+.App .tree {
+  width: 80%;
 }

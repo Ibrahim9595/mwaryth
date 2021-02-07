@@ -8,6 +8,7 @@ const data = {
   GENDER_FEMALE: "Female",
   IS_ALIVE: "Is Alive?",
   SAVE: "Add",
+  EDIT_DATA: "Edit Data",
 };
 
 export default data;

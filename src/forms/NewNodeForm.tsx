@@ -3,17 +3,41 @@ import {
   CustomFormWrapper,
   Input,
   FormSelectionGroup,
+  CheckBox,
 } from "../components/FormInputs";
-import { Checkbox, Form } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 import { Field, FieldProps } from "formik";
 import { useTranslation } from "react-i18next";
 
-export const NewNodeForm = ({ data, handleSubmit }: any) => {
+interface FormData {
+  name?: string;
+  wealth?: number;
+  gender?: "male" | "female" | "";
+  isAlive?: boolean;
+}
+
+const validate = (data: FormData) => {
+  console.log(data);
+  return {};
+};
+
+export const NewNodeForm = ({
+  data,
+  handleSubmit,
+}: {
+  data: FormData;
+  handleSubmit: (data: FormData) => any;
+}) => {
   const { i18n } = useTranslation();
 
   return (
     <CustomFormWrapper
-      onSubmit={handleSubmit}
+      onSubmit={(data, { resetForm }) => {
+        handleSubmit(data);
+        resetForm();
+      }}
+      validate={validate}
+      validateOnBlur={true}
       initialValues={{
         name: data?.name || "",
         wealth: data?.wealth || 0,
@@ -32,6 +56,8 @@ export const NewNodeForm = ({ data, handleSubmit }: any) => {
       <Input
         name="wealth"
         type="number"
+        icon="dollar sign"
+        iconPosition="left"
         min={0}
         placeholder={i18n.t("WEALTH_PLACEHOLDER")}
         label={i18n.t("WEALTH_LABEL")}
@@ -49,8 +75,8 @@ export const NewNodeForm = ({ data, handleSubmit }: any) => {
           label: i18n.t(`GENDER_${gender.toUpperCase()}`),
         }))}
       ></FormSelectionGroup>
-      <div style={{marginBlock: "15px"}}>
-        <Checkbox name="isAlive" toggle label={i18n.t("IS_ALIVE")} />
+      <div style={{ marginBlock: "15px" }}>
+        <CheckBox name="isAlive" toggle label={i18n.t("IS_ALIVE")} />
       </div>
       <Field
         component={({ form }: FieldProps) => (
