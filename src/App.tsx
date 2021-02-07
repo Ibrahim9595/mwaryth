@@ -10,7 +10,13 @@ function App() {
     <div className="App">
       <div className="form-container">
         <h3>{i18n.t("EDIT_DATA")}</h3>
-        <NewNodeForm />
+        <NewNodeForm
+          data={{}}
+          handleSubmit={(data) => {
+            console.log(data);
+            return Promise.resolve();
+          }}
+        />
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ const data = {
   GENDER_FEMALE: "انثى",
   IS_ALIVE: "علي قيد الحياة؟",
   SAVE: "اضافة",
+  EDIT_DATA: "تعديل البيانات",
 };
 
 export default data;
