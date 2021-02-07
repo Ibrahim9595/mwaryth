@@ -1,0 +1,87 @@
+.flex-container {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.flex-container .add-button {
+    min-height: 100%;
+    margin: 0;
+    border-radius: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+.files-uploader-wrapper {
+    min-height: 12em;
+    box-sizing: border-box;
+    width: 100%;
+    display: -webkit-box;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 1em;
+    border: 1px solid rgba(34,36,38,.35);
+    border-right: none;
+}
+
+.files-uploader-wrapper:hover {
+    border: 1px solid rgba(34,36,38,.5);
+}
+
+.files-uploader-wrapper::after {
+    content: '';
+    padding: 0.5em;
+}
+
+.files-uploader-wrapper .img-card {
+    position: relative;
+    width: 12em;
+    flex: none;
+    margin-right: 1em;
+    background-color: rgb(223, 217, 217);
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.files-uploader-wrapper .img-card:last-child {
+    margin-right: 0;
+}
+
+.files-uploader-wrapper .img-card .overlay {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.files-uploader-wrapper .img-card .remove-icon {
+    display: inline;
+    position: absolute;
+    right: 0px;
+    top: 4px;
+}
+
+.files-uploader-wrapper .img-card img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+p {
+    flex: 1;
+    text-align: center;
+}

@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import "semantic-ui-css/semantic.min.css";
+import { NewNodeForm } from "./forms/NewNodeForm";
+import { useTranslation } from "react-i18next";
 
 function App() {
+  const { i18n } = useTranslation();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="form-container">
+        <h3>{i18n.t("EDIT_DATA")}</h3>
+        <NewNodeForm />
+      </div>
     </div>
   );
 }
