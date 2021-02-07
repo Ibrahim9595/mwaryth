@@ -4,8 +4,6 @@ import { useTranslation } from "react-i18next";
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 import { Graph } from "./components/graph";
-import { Select } from "./components/FormInputs";
-
 const { nodes, edges } = {
   nodes: [
     {
