@@ -3,6 +3,7 @@ import "./App.css";
 import "semantic-ui-css/semantic.min.css";
 import { NewNodeForm } from "./forms/NewNodeForm";
 import { useTranslation } from "react-i18next";
+import OrgChartTree from "./components/Tree"
 
 function App() {
   const { i18n } = useTranslation();
@@ -18,7 +19,9 @@ function App() {
           }}
         />
       </div>
-      <div className="tree">TEST</div>
+      <div className="tree">
+        <OrgChartTree></OrgChartTree>
+      </div>
     </div>
   );
 }
