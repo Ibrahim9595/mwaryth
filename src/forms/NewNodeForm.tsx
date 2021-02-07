@@ -4,32 +4,37 @@ import {
   Input,
   FormSelectionGroup,
   CheckBox,
+  Select,
 } from "../components/FormInputs";
 import { Form } from "semantic-ui-react";
 import { Field, FieldProps } from "formik";
 import { useTranslation } from "react-i18next";
 
-interface FormData {
+export interface IFormData {
+  id?: string | number;
   name?: string;
   wealth?: number;
-  gender?: "male" | "female" | "";
+  gender?: string;
   isAlive?: boolean;
   married?: boolean;
+  relation?: string;
 }
 
-const validate = (data: FormData) => {
-  console.log(data);
+const validate = (data: IFormData) => {
   return {};
 };
 
 export const NewNodeForm = ({
   data,
   handleSubmit,
+  addNode,
 }: {
-  data: FormData;
-  handleSubmit: (data: FormData) => any;
+  data: IFormData;
+  handleSubmit: (data: IFormData) => any;
+  addNode: (data: { relation: string; id: string }) => any;
 }) => {
   const { i18n } = useTranslation();
+  console.log(data.id);
 
   return (
     <CustomFormWrapper
@@ -40,11 +45,13 @@ export const NewNodeForm = ({
       validate={validate}
       validateOnBlur={true}
       initialValues={{
+        id: data?.id || 0,
         name: data?.name || "",
         wealth: data?.wealth || 0,
         gender: data?.gender || "",
         isAlive: data?.isAlive || false,
-        married: data?.married || false,
+        // married: data?.married || false,
+        relation: data?.relation || undefined,
       }}
     >
       <Input
@@ -80,9 +87,10 @@ export const NewNodeForm = ({
       <div style={{ marginBlock: "15px" }}>
         <CheckBox name="isAlive" toggle label={i18n.t("IS_ALIVE")} />
       </div>
-      <div style={{ marginBlock: "15px" }}>
+      {/* <div style={{ marginBlock: "15px" }}>
         <CheckBox name="married" toggle label={i18n.t("MARRIED")} />
-      </div>
+      </div> */}
+
       <Field
         component={({ form }: FieldProps) => (
           <Form.Button
@@ -92,6 +100,37 @@ export const NewNodeForm = ({
             primary
             loading={form.isSubmitting}
             disabled={!form.dirty || form.isSubmitting || !form.isValid}
+          />
+        )}
+      />
+
+      <hr />
+      <p>Choose relation type to add new node</p>
+      <Select
+        required
+        search
+        selection
+        clearable
+        name="relation"
+        options={["mother", "father", "child", "partner"].map((role) => ({
+          value: role,
+          text: role,
+          key: role,
+        }))}
+        placeholder={i18n.t("SELECT_RELATION")}
+      />
+      <Field
+        component={({ form }: FieldProps) => (
+          <Form.Button
+            fluid
+            type="button"
+            onClick={() => {
+              console.log(form.values);
+              addNode({ relation: form.values.relation, id: form.values.id });
+            }}
+            content={i18n.t("SAVE")}
+            primary
+            disabled={!form.values.relation}
           />
         )}
       />

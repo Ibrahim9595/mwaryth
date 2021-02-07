@@ -1,9 +1,10 @@
 import Tree from "react-d3-tree";
 import React from "react";
+import { RawNodeDatum } from "react-d3-tree/lib/types/common";
 
 // This is a simplified example of an org chart with a depth of 2.
 // Note how deeper levels are defined recursively via the `children` property.
-const orgChart = {
+const orgChart: RawNodeDatum = {
   name: "CEO",
   children: [
     {
@@ -52,6 +53,7 @@ export default function OrgChartTree() {
         data={orgChart}
         orientation="vertical"
         onNodeClick={(node) => console.log(node)}
+        
       />
     </div>
   );
