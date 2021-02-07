@@ -55,7 +55,6 @@ export const Graph: React.FC<{
   const NodeSubtypes = GraphConfig.NodeSubtypes;
   const EdgeTypes = GraphConfig.EdgeTypes;
 
-  console.log(edges);
   return (
     <GraphView
       nodeKey={NODE_KEY}
@@ -68,7 +67,22 @@ export const Graph: React.FC<{
         return (
           <foreignObject x="-100" y="-30" width="200" height="50">
             <div className="node">
-              <p className="job-title">{props?.name || "None"}</p>
+              <p className="job-title">
+                {props?.name +
+                  (props?.wealth
+                    ? (props.relation ? `(  ${props?.relation} )` : "") +
+                      `(${props.wealth}$)`
+                    : "") || "None"}
+              </p>
+              {props ? (
+                <>
+                  <p>
+                    {props.gender || ""} {props.isAlive ? "live" : "dead"}
+                  </p>
+                </>
+              ) : (
+                ""
+              )}
             </div>
           </foreignObject>
         );
