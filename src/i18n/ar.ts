@@ -9,6 +9,7 @@ const data = {
   IS_ALIVE: "علي قيد الحياة؟",
   SAVE: "اضافة",
   EDIT_DATA: "تعديل البيانات",
+  MARRIED: "متزوج",
 };
 
 export default data;

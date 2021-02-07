@@ -1,36 +1,36 @@
-import React from 'react';
-import Tree from 'react-d3-tree';
+import Tree from "react-d3-tree";
+import React from "react";
 
 // This is a simplified example of an org chart with a depth of 2.
 // Note how deeper levels are defined recursively via the `children` property.
 const orgChart = {
-  name: 'CEO',
+  name: "CEO",
   children: [
     {
-      name: 'Manager',
+      name: "Manager",
       attributes: {
-        department: 'Production',
+        department: "Production",
       },
       children: [
         {
-          name: 'Foreman',
+          name: "Foreman",
           attributes: {
-            department: 'Fabrication',
+            department: "Fabrication",
           },
           children: [
             {
-              name: 'Worker',
+              name: "Worker",
             },
           ],
         },
         {
-          name: 'Foreman',
+          name: "Foreman",
           attributes: {
-            department: 'Assembly',
+            department: "Assembly",
           },
           children: [
             {
-              name: 'Worker',
+              name: "Worker",
             },
           ],
         },
@@ -41,9 +41,18 @@ const orgChart = {
 
 export default function OrgChartTree() {
   return (
-    // `<Tree />` will fill width/height of its container; in this case `#treeWrapper`.
-    <div id="treeWrapper" style={{ width: '100%', height: '100%' }}>
-      <Tree data={orgChart} />
+    <div
+      id="treeWrapper"
+      style={{
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      <Tree
+        data={orgChart}
+        orientation="vertical"
+        onNodeClick={(node) => console.log(node)}
+      />
     </div>
   );
 }
